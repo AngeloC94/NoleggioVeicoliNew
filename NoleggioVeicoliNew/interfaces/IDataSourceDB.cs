@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace NoleggioVeicoliNew.interfaces
 {
-    public interface INoleggiabile
+    internal interface IDataSourceDB
     {
-        void Noleggia();
-        void Restituisci();
-
     }
 }
