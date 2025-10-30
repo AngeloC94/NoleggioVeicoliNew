@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace NoleggioVeicoliNew.interfaces
 {
-    public interface INoleggiabile
+    internal interface IReportGenerabile
     {
-        void Noleggia();
-        void Restituisci();
-
     }
 }
