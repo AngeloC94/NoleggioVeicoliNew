@@ -12,7 +12,12 @@ namespace NoleggioVeicoliNew.services
         // public Cliente cliente;
         // public Veicolo veicolo;
         public DateTime DataInizio { get; }
-        public int DurataGiorni
+        public int DurataGiorni; //cambiare in timespan
         
+        public double CalcolaTotale()
+        {
+            return 0;
+            //return DurataGiorni*veicolo.Prezzo
+        }
     }
 }
