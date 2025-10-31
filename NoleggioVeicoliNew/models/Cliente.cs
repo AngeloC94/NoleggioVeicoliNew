@@ -8,6 +8,8 @@ namespace NoleggioVeicoliNew.models
 {
     public class Cliente
     {
+        public int id;
+
         public enum Patente { 
             A,
             B,
@@ -19,10 +21,11 @@ namespace NoleggioVeicoliNew.models
 
         public Patente patente { get;}
 
-        public Cliente(string nome, string codiceCliente, Patente patente) {
+        public Cliente(int id, string nome, string codiceCliente, Patente patente) {
             this.patente = patente;
             this.CodiceCliente = codiceCliente;
             this.Nome = nome;
+            this.id = id;
         }
 
         public void MostraInfo()

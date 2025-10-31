@@ -10,7 +10,7 @@ namespace NoleggioVeicoliNew.models
     {
         public int Cilindrata { get; }
 
-        public Moto(string targa, string modello, double tariffa, int cilindrata) : base(targa, modello, tariffa)
+        public Moto(string targa, string modello, double tariffa, int cilindrata, int id) : base(targa, modello, tariffa, id)
         {
             this.Cilindrata = cilindrata;
         }
