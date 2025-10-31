@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NoleggioVeicoliNew.interfaces
 {
-    internal interface IReportGenerabile
+    public interface IReportGenerabile
     {
         public void GeneraReport();
     }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NoleggioVeicoliNew.models
 {
-    public class Cliente
+    public class Furgone : Veicolo
     {
+
     }
 }

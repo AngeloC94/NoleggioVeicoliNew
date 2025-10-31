@@ -21,6 +21,6 @@ namespace NoleggioVeicoliNew.interfaces
         Cliente GetClientiById(int id);
         Noleggio GetNoleggiById(int id);
 
-        Noleggio GetNoleggioByData(DateTime data);
+        List<Noleggio> GetNoleggiByData(DateTime data);
     }
 }
