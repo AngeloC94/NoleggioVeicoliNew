@@ -19,6 +19,8 @@ namespace NoleggioVeicoliNew.models
         {
             double costo = giorni * TariffaGiornaliera;
 
+            //TODO fare con swicht
+
             if (Cilindrata >= 1800)
             {
                 costo = costo + (TariffaGiornaliera * 0.15 * giorni);

@@ -8,8 +8,8 @@ namespace NoleggioVeicoliNew.interfaces
 {
     public interface INoleggiabile
     {
-        void Noleggia();
-        void Restituisci();
+        bool Noleggia();
+        bool Restituisci();
 
     }
 }

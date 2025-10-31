@@ -10,18 +10,20 @@ namespace NoleggioVeicoliNew.models
 {
     public class Noleggio 
     {
-        public Cliente cliente;
-        public Veicolo veicolo;
+        public Guid Id;
+        public Cliente Cliente;
+        public Veicolo Veicolo;
         public DateTime DataInizio { get; }
         public DateTime DataFine { get; }
         public double DurataGiorni;
         public Noleggio(Veicolo veicolo, Cliente cliente, double DurataGiorni,DateTime DataInizio, DateTime DataFine)
         {
-            this.veicolo = veicolo;
-            this.cliente = cliente;
+            this.Veicolo = veicolo;
+            this.Cliente = cliente;
             this.DurataGiorni = DurataGiorni;
             this.DataInizio = DataInizio;
             this.DataFine = DataFine;
+            this.Id = new Guid();
         }
         public double CalcolaTotale() //FINITO
         {
@@ -33,7 +35,7 @@ namespace NoleggioVeicoliNew.models
                 Math.Ceiling(DurataGiorni);
                 temp = (int)DurataGiorni;
             }
-            return veicolo.CalcolaCosto(temp);
+            return Veicolo.CalcolaCosto(temp);
         }
 
         public string descrizione() //FINITO
@@ -43,7 +45,8 @@ namespace NoleggioVeicoliNew.models
 
         public override string ToString()
         {
-            return $"inizio Noleggio a carico di {cliente.Nome}, del veicolo tg. {veicolo.Targa}, data inizio:{DataInizio}, data fine {DataFine}";
+            return null;
+            return $"inizio Noleggio a carico di {Cliente.Nome}, del veicolo tg. {Veicolo.Targa}, data inizio:{DataInizio}, data fine {DataFine}";
         }
     }
 }
