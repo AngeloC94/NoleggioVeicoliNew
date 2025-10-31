@@ -34,6 +34,20 @@ namespace NoleggioVeicoliNew.models
                 costo = costo + (TariffaGiornaliera * 0.05 * giorni);
             }
 
+
+            //if (Cilindrata >= 1800)
+            //{
+            //    costo = costo + (TariffaGiornaliera * 0.15 * giorni);
+            //}
+            //else if (Cilindrata >= 1200 && Cilindrata < 1800)
+            //{
+            //    costo = costo + (TariffaGiornaliera * 0.1 * giorni);
+            //}
+            //else if (Cilindrata >= 600 && Cilindrata < 1200)
+            //{
+            //    costo = costo + (TariffaGiornaliera * 0.05 * giorni);
+            //}
+
             return costo;
         }
     }

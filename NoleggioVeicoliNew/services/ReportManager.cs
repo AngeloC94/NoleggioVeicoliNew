@@ -16,9 +16,11 @@ namespace NoleggioVeicoliNew.services
             double totale = noleggi.Sum(n => n.CalcolaTotale());
             double mediaGiorniNoleggio = noleggi.Average(n => n.DurataGiorni);
             List<Noleggio> allNoleggi = db.GetAllNoleggi();
-            int vDisponibili= allNoleggi.Where(n => !n.Veicolo.Noleggiato && data == DateTime.Today).ToList().Count();
+            List<Veicolo> veicoliNonNoleggiati = db.GetAllVeicoli().Where(v => !v.Noleggiato).ToList();
+            //int vDisponibili= allNoleggi.Where(n => !n.Veicolo.Noleggiato && data.Date == DateTime.Today).ToList().Count();
+            //int vDisponibili= db.GetAllVeicoli().Count() - veicoliNonNoleggiati.Count();
 
-            Console.WriteLine($"===Report Giornaliero===\r\nTotale incasso: {totale} €\r\nMedia Giorni di Noleggio: {mediaGiorniNoleggio}\r\nVeicoli Disponibili: {vDisponibili}");
+            Console.WriteLine($"===Report Giornaliero===\r\nTotale incasso: {totale} Euro\r\nMedia Giorni di Noleggio: {mediaGiorniNoleggio}\r\nVeicoli Disponibili: {veicoliNonNoleggiati.Count}");
         }
 
         public void GeneraStatisticheGiornaliere()

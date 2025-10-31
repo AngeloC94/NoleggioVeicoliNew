@@ -25,7 +25,7 @@ namespace NoleggioVeicoliNew.models
             this.Patente = patente;
             this.CodiceCliente = codiceCliente;
             this.Nome = nome;
-            this.Id = new Guid();
+            this.Id = Guid.NewGuid();
         }
 
         public void MostraInfo()

@@ -21,7 +21,7 @@ namespace NoleggioVeicoliNew.models
             this.Modello = modello;
             this.TariffaGiornaliera = tariffa;
             this.Noleggiato = false;
-            this.Id = new Guid();
+            this.Id = Guid.NewGuid();
         }
 
         public abstract double CalcolaCosto(int giorni);
@@ -33,9 +33,9 @@ namespace NoleggioVeicoliNew.models
 
         public bool Noleggia()
         {
-            bool successo = Noleggiato!;
+            bool successo = !Noleggiato;
 
-            if (Noleggiato!) { 
+            if (!Noleggiato) { 
                 Noleggiato = true;
             }
 

@@ -29,10 +29,25 @@ namespace NoleggioVeicoliNew.services
 
         public Cliente? GetClientiById(Guid id) => ListClienti.Find(c => c?.Id == id);
 
-        public List<Noleggio> GetNoleggiByData(DateTime data) => ListNoleggi.Where(n => n?.DataInizio == data).ToList();
+        public List<Noleggio> GetNoleggiByData(DateTime data) => ListNoleggi.Where(n => n?.DataInizio.Date == data.Date).ToList();
 
         public Noleggio? GetNoleggiById(Guid id) => ListNoleggi.Find(n => n?.Id == id);
 
         public Veicolo? GetVeicoliById(Guid id) => ListVeicoli.Find(v => v?.Id == id);
+
+        public void AddListVeicoli(List<Veicolo> veicoli)
+        {
+            ListVeicoli = veicoli;
+        }
+
+        public void AddListClienti(List<Cliente> clienti)
+        {
+            ListClienti = clienti;
+        }
+
+        public void UpdateNoleggio(Noleggio nl)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

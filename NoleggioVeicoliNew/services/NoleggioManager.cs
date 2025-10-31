@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace NoleggioVeicoliNew.services
 {
-    public delegate void OnVeicoloNoleggiatoEventHandler(NoleggioManager sendr,Noleggio noleggio);
-    public delegate void OnVeicoloRestituitoEventHandler(NoleggioManager sendr, Noleggio Noleggioargs);
+    public delegate void OnVeicoloNoleggiatoEventHandler(NoleggioManager sender,Noleggio noleggioArgs);
+    public delegate void OnVeicoloRestituitoEventHandler(NoleggioManager sender, Noleggio noleggioArgs);
     public class NoleggioManager
     {
-        //private IDataSourceDB _idb;
+        private IDataSourceDB _idb;
 
-        //public NoleggioManager(IDataSourceDB idb)
-        //{
-        //    _idb = idb;
-        //}
+        public NoleggioManager(IDataSourceDB idb)
+        {
+            _idb = idb;
+        }
 
         public event OnVeicoloNoleggiatoEventHandler VeicoloNoleggiato;
         public event OnVeicoloRestituitoEventHandler VeicoloRestituito;
@@ -44,13 +44,19 @@ namespace NoleggioVeicoliNew.services
 
         public void CreaNoleggio(Cliente cl , Veicolo veicolo, double durata,DateTime inizio)
         {
+
             Noleggio nl = new Noleggio(veicolo, cl, durata, inizio, inizio.AddDays(durata));
-            
+            _idb.AddNoleggio(nl);
+            veicolo.Noleggia();
+            OnVeicoloNoleggiato(nl);
         }
-        /*
-         * inserire nel program.cs o dove si istanzia una variabile NoleggioManager::
-         * 
-         *  (istanza de)
-         */
+
+        public void TerminaNoleggio(Noleggio nl)
+        {
+            nl.Veicolo.Restituisci();
+            _idb.UpdateNoleggio(nl);
+            OnVeicoloNoleggiato(nl);
+        }
+
     }
 }

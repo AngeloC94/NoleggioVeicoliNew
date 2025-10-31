@@ -12,6 +12,10 @@ namespace NoleggioVeicoliNew.interfaces
         void AddVeicolo(Veicolo veicolo);
         void AddCliente(Cliente cliente);
         void AddNoleggio(Noleggio noleggio);
+        void AddListVeicoli(List<Veicolo> veicoli); 
+        void AddListClienti(List<Cliente> clienti);
+
+
 
         List<Veicolo> GetAllVeicoli();
         List<Cliente> GetAllClienti();
@@ -22,5 +26,6 @@ namespace NoleggioVeicoliNew.interfaces
         Noleggio? GetNoleggiById(Guid id);
 
         List<Noleggio> GetNoleggiByData(DateTime data);
+        void UpdateNoleggio(Noleggio nl);
     }
 }
