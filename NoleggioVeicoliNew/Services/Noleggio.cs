@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoleggioVeicoliNew.interfaces
+namespace NoleggioVeicoliNew.services
 {
-    public interface INoleggiabile
+    public class Noleggio
     {
-        void Noleggia();
-        void Restituisci();
-
     }
 }

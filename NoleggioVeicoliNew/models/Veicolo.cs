@@ -1,5 +1,4 @@
-﻿using NoleggioVeicoliNew.services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,25 +6,27 @@ using System.Threading.Tasks;
 
 namespace NoleggioVeicoliNew.models
 {
-    public delegate void VeicoloNoleggiatoEventHandler(NoleggioManager sen, Veicolo veicolo);
-    public class Veicolo
+    public abstract class Veicolo
     {
+        public string Targa { get; private set; }
+        public string Modello { get; private set; }
+        public double TariffaGiornaliera { get; private set; }
 
-        public event VeicoloNoleggiatoEventHandler NoleggioIniziato;
-
-        public Veicolo(NoleggioManager nl)
+        public Veicolo(string targa, string modello, double tariffa)
         {
-            nl.Subscribe(this);
+            this.Targa = targa;
+            this.Modello = modello;
+            this.TariffaGiornaliera = tariffa;
         }
 
-        public void Noleggiato()
+        public abstract double CalcolaCosto(int giorni);
+
+        public string MostraDettagli()
         {
-            Console.WriteLine("sucaaaaaaa");
+            return $"[{GetType().Name}] {Modello} - Targa: {Targa}, Tariffa: {TariffaGiornaliera:C} al giorno";
         }
 
-        private void OnVeicoloNoleggiato()
-        {
 
-        }
     }
 }
+

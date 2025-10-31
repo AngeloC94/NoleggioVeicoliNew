@@ -1,4 +1,5 @@
-﻿using System;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,8 @@ namespace NoleggioVeicoliNew.interfaces
 {
     public interface IReportGenerabile
     {
+        public void GeneraReportGiornaliero();
+        public void GeneraReportPerData(DateTime data);
+        public void GeneraStatisticheGiornaliere();
     }
 }
