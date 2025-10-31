@@ -13,6 +13,44 @@ namespace NoleggioVeicoliNew.services
     public delegate void OnVeicoloRestituitoEventHandler(NoleggioManager sendr, Noleggio Noleggioargs);
     public class NoleggioManager
     {
+        //private IDataSourceDB _idb;
 
+        //public NoleggioManager(IDataSourceDB idb)
+        //{
+        //    _idb = idb;
+        //}
+
+        public event OnVeicoloNoleggiatoEventHandler VeicoloNoleggiato;
+        public event OnVeicoloRestituitoEventHandler VeicoloRestituito;
+
+        public void OnVeicoloNoleggiato(Noleggio noleggio)
+        {// tramite noleggio, accedo al veicolo e al metodo noleggia.
+
+            
+            if (VeicoloNoleggiato != null)
+            {
+                VeicoloNoleggiato(this, noleggio);
+            }
+        }
+        public void OnVeicoloRestituito(Noleggio noleggio)
+        {
+            if (VeicoloRestituito != null)
+            {
+                VeicoloRestituito(this, noleggio);
+            }
+        }
+
+
+
+        public void CreaNoleggio(Cliente cl , Veicolo veicolo, double durata,DateTime inizio)
+        {
+            Noleggio nl = new Noleggio(veicolo, cl, durata, inizio, inizio.AddDays(durata));
+            
+        }
+        /*
+         * inserire nel program.cs o dove si istanzia una variabile NoleggioManager::
+         * 
+         *  (istanza de)
+         */
     }
 }
