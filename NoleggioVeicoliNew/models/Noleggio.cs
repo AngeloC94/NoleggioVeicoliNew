@@ -33,7 +33,7 @@ namespace NoleggioVeicoliNew.models
                 Math.Ceiling(DurataGiorni);
                 temp = (int)DurataGiorni;
             }
-            return veicolo.calcolaCosto(temp);
+            return veicolo.CalcolaCosto(temp);
         }
 
         public string descrizione() //FINITO
@@ -44,7 +44,7 @@ namespace NoleggioVeicoliNew.models
         public override string ToString()
         {
             return null;
-            //return $"inizio Noleggio a carico di {Cliente.Nome}, del veicolo tg. {Veicolo.targa}, data inizio:{DataInizio}, data fine {DataFine}";
+            return $"inizio Noleggio a carico di {cliente.Nome}, del veicolo tg. {veicolo.Targa}, data inizio:{DataInizio}, data fine {DataFine}";
         }
     }
 }
