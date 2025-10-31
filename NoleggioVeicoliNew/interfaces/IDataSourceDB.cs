@@ -11,6 +11,7 @@ namespace NoleggioVeicoliNew.interfaces
     {
         void AddVeicolo(Veicolo veicolo);
         void AddCliente(Cliente cliente);
+        void AddNoleggio(Noleggio noleggio);
 
         List<Veicolo> GetAllVeicoli();
         List<Cliente> GetAllClienti();

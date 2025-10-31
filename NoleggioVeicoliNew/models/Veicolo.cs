@@ -11,15 +11,16 @@ namespace NoleggioVeicoliNew.models
         public string Targa { get; }
         public string Modello { get; }
         public double TariffaGiornaliera { get; }
-
+        public int id { get; }
         public bool Noleggiato { get; }
 
-        public Veicolo(string targa, string modello, double tariffa)
+        public Veicolo(string targa, string modello, double tariffa, int id)
         {
             this.Targa = targa;
             this.Modello = modello;
             this.TariffaGiornaliera = tariffa;
             this.Noleggiato = false;
+            this.id = id;
         }
 
         public abstract double CalcolaCosto(int giorni);
