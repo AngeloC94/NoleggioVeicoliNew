@@ -7,11 +7,7 @@ namespace NoleggioVeicoliNew.services
     {
         // db.GetAllX();
 
-        public void GeneraReportGiornaliero()
-        {
-            List<Noleggio> noleggi = db.GetNoleggiByData(DateTime.Today);
-            
-        }
+        public void GeneraReportGiornaliero() => GeneraReportPerData(DateTime.Today);
 
         public void GeneraReportPerData(DateTime data)
         {
