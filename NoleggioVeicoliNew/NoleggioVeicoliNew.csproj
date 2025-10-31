@@ -7,8 +7,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+<<<<<<< Updated upstream
   <ItemGroup>
     <Folder Include="models\" />
   </ItemGroup>
 
+=======
+>>>>>>> Stashed changes
 </Project>
