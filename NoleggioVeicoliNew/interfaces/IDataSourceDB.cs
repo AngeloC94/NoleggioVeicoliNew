@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NoleggioVeicoliNew.models;
-using NoleggioVeicoliNew.services;
 
 namespace NoleggioVeicoliNew.interfaces
 {
     public interface IDataSourceDB
     {
-        void AddVeiocolo(Veicolo veicolo);
+        void AddVeicolo(Veicolo veicolo);
         void AddCliente(Cliente cliente);
 
         List<Veicolo> GetAllVeicoli();
