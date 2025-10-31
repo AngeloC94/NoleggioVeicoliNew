@@ -1,11 +1,13 @@
 ﻿using NoleggioVeicoliNew.interfaces;
+using NoleggioVeicoliNew.models;
 
 namespace NoleggioVeicoliNew.services
 {
-    public class ReportManager(/*IDataSourceDb db*/) : IReportGenerabile
+    public class ReportManager(IDataSourceDB db) : IReportGenerabile
+
     {
-        //List<Veicolo> veicoli = db.GetVeicoli();
-        //List<Noleggio> noleggi = db.GetNoleggi();
+        List<Veicolo> veicoli = db.GetAllVeicoli();
+        List<Noleggio> noleggi = db.GetAllNoleggi();
 
         public void GeneraReportGiornaliero()
         {
