@@ -1,7 +1,9 @@
-﻿namespace NoleggioVeicoliNew
+﻿namespace NoleggioVeicoliNew.interfaces
 {
     public interface IReportGenerabile
     {
-        public void GeneraReport();
+        public void GeneraReportGiornaliero();
+        public void GeneraReportPerData(DateTime data);
+        public void GeneraStatisticheGiornaliere();
     }
 }
