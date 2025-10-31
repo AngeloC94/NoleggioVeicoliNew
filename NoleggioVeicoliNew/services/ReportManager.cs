@@ -4,15 +4,13 @@ using NoleggioVeicoliNew.models;
 namespace NoleggioVeicoliNew.services
 {
     public class ReportManager(IDataSourceDB db) : IReportGenerabile
-
     {
-        List<Veicolo> veicoli = db.GetAllVeicoli();
-        List<Noleggio> noleggi = db.GetAllNoleggi();
+        // db.GetAllX();
 
         public void GeneraReportGiornaliero()
         {
-            Noleggio noleggio = db.GetNoleggioByData(DateTime.Today);
-
+            List<Noleggio> noleggi = db.GetNoleggiByData(DateTime.Today);
+            
         }
 
         public void GeneraReportPerData(DateTime data)
