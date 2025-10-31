@@ -10,7 +10,7 @@ namespace NoleggioVeicoliNew.models
     {
         public int Cilindrata { get; }
 
-        public Moto(string targa, string modello, double tariffa, int cilindrata, int id) : base(targa, modello, tariffa, id)
+        public Moto(string targa, string modello, double tariffa, int cilindrata) : base(targa, modello, tariffa)
         {
             this.Cilindrata = cilindrata;
         }
@@ -18,6 +18,8 @@ namespace NoleggioVeicoliNew.models
         public override double CalcolaCosto(int giorni)
         {
             double costo = giorni * TariffaGiornaliera;
+
+            //TODO fare con swicht
 
             if (Cilindrata >= 1800)
             {

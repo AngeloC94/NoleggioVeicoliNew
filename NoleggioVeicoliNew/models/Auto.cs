@@ -11,7 +11,7 @@ namespace NoleggioVeicoliNew.models
         public int NumeroPorte { get; }
         public bool IsSportiva { get; }
 
-        public Auto(string targa, string modello, double tariffa, int numeroPorte, bool IsSportiva, int id) : base (targa,modello,tariffa,id)
+        public Auto(string targa, string modello, double tariffa, int numeroPorte, bool IsSportiva) : base (targa,modello,tariffa)
         { 
             this.NumeroPorte = numeroPorte;
             this.IsSportiva = IsSportiva;

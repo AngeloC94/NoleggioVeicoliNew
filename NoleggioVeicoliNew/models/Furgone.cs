@@ -10,7 +10,7 @@ namespace NoleggioVeicoliNew.models
     {
         public double CapacitaCaricoKg { get; }
 
-        public Furgone(string targa, string modello, double tariffa, double capacitaCaricoKg, int id) : base(targa, modello, tariffa, id)
+        public Furgone(string targa, string modello, double tariffa, double capacitaCaricoKg) : base(targa, modello, tariffa)
         {
             this.CapacitaCaricoKg = capacitaCaricoKg;
         }

@@ -8,19 +8,19 @@ namespace NoleggioVeicoliNew.models
 {
     public abstract class Veicolo
     {
+        public Guid Id { get; }
         public string Targa { get; }
         public string Modello { get; }
         public double TariffaGiornaliera { get; }
-        public int id { get; }
         public bool Noleggiato { get; }
 
-        public Veicolo(string targa, string modello, double tariffa, int id)
+        public Veicolo(string targa, string modello, double tariffa)
         {
             this.Targa = targa;
             this.Modello = modello;
             this.TariffaGiornaliera = tariffa;
             this.Noleggiato = false;
-            this.id = id;
+            this.Id = new Guid();
         }
 
         public abstract double CalcolaCosto(int giorni);

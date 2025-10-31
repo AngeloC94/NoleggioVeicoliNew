@@ -11,15 +11,15 @@ namespace NoleggioVeicoliNew.services
 {
     public class DataManager : IDataSourceDB
     {
-        public List<Cliente> ListClienti = new List<Cliente>();
-        public List<Veicolo> ListVeicoli  = new List<Veicolo>();
-        public List<Noleggio> ListNoleggi  = new List<Noleggio>();
+        public List<Cliente> ListClienti = [];
+        public List<Veicolo> ListVeicoli  = [];
+        public List<Noleggio> ListNoleggi  = [];
 
         public void AddCliente(Cliente cliente) => ListClienti.Add(cliente);
 
         public void AddVeicolo(Veicolo veicolo) => ListVeicoli.Add(veicolo);
 
-        public void AddNoleggio(Noleggio noleggio) => ListNoleggi.Add(new Noleggio());
+        public void AddNoleggio(Noleggio noleggio) => ListNoleggi.Add(noleggio);
 
         public List<Cliente> GetAllClienti() => ListClienti;
 
@@ -27,12 +27,12 @@ namespace NoleggioVeicoliNew.services
 
         public List<Veicolo> GetAllVeicoli() => ListVeicoli;
 
-        public Cliente GetClientiById(int id) => ListClienti.Find(c => c?.id == id);
+        public Cliente? GetClientiById(Guid id) => ListClienti.Find(c => c?.Id == id);
 
-        public List<Noleggio> GetNoleggiByData(DateTime data) => ListNoleggi.Find(n => n?.DataInizio == data);
+        public List<Noleggio> GetNoleggiByData(DateTime data) => ListNoleggi.Where(n => n?.DataInizio == data).ToList();
 
-        public Noleggio GetNoleggiById(int id) => ListNoleggi.Find(n => n?.id == id);
+        public Noleggio? GetNoleggiById(Guid id) => ListNoleggi.Find(n => n?.Id == id);
 
-        public Veicolo GetVeicoliById(int id) => ListVeicoli.Find(v => v?.id == id);
+        public Veicolo? GetVeicoliById(Guid id) => ListVeicoli.Find(v => v?.Id == id);
     }
 }

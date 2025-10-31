@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace NoleggioVeicoliNew.models
 {
+    public enum TipoPatente
+    {
+        A,
+        B,
+        C
+    }
+
     public class Cliente
     {
-        public int id;
-
-        public enum Patente { 
-            A,
-            B,
-            C
-        }
-
+        public Guid Id;
         public string Nome { get;}
         public string CodiceCliente { get;}
 
-        public Patente patente { get;}
+        public TipoPatente Patente { get;}
 
-        public Cliente(int id, string nome, string codiceCliente, Patente patente) {
-            this.patente = patente;
+        public Cliente(string nome, string codiceCliente, TipoPatente patente) {
+            this.Patente = patente;
             this.CodiceCliente = codiceCliente;
             this.Nome = nome;
-            this.id = id;
+            this.Id = new Guid();
         }
 
         public void MostraInfo()
         {
-            Console.WriteLine($"Nome: {Nome} - Codice Cliente: {CodiceCliente} - Patente: {patente}");
+            Console.WriteLine($"Nome: {Nome} - Codice Cliente: {CodiceCliente} - Patente: {Patente}");
         }
 
     }
