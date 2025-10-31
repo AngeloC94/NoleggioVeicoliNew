@@ -8,11 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-    <Folder Include="models\" />
-=======
     <Folder Include="services\" />
->>>>>>> Gruppo1
+    <Folder Include="models\" />
+    <Folder Include="services\" />
   </ItemGroup>
 
 </Project>
