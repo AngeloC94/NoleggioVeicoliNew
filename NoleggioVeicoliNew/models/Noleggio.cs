@@ -43,7 +43,6 @@ namespace NoleggioVeicoliNew.models
 
         public override string ToString()
         {
-            return null;
             return $"inizio Noleggio a carico di {cliente.Nome}, del veicolo tg. {veicolo.Targa}, data inizio:{DataInizio}, data fine {DataFine}";
         }
     }
