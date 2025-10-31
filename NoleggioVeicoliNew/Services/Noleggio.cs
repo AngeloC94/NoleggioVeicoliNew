@@ -13,10 +13,6 @@ namespace NoleggioVeicoliNew.services
         public Cliente cliente;
         public Veicolo veicolo;
         public DateTime DataInizio { get; }
-<<<<<<< Updated upstream
-        public int DurataGiorni
-        
-=======
         public DateTime DataFine { get; }
         public double DurataGiorni;
         public Noleggio(Veicolo veicolo, Cliente cliente, double DurataGiorni,DateTime DataInizio, DateTime DataFine)
@@ -50,9 +46,5 @@ namespace NoleggioVeicoliNew.services
             return null;
             //return $"inizio Noleggio a carico di {Cliente.Nome}, del veicolo tg. {Veicolo.targa}, data inizio:{DataInizio}, data fine {DataFine}";
         }
-
-
-
->>>>>>> Stashed changes
     }
 }

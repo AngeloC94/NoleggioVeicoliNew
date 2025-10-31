@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NoleggioVeicoliNew.services
 {
-    public delegate void OnVeicoloNoleggiatoEventHandler(NoleggioManager sen,Noleggio noleggio);
+    public delegate void OnVeicoloNoleggiatoEventHandler(NoleggioManager sendr,Noleggio noleggio);
     public delegate void OnVeicoloRestituitoEventHandler(NoleggioManager sendr, Noleggio Noleggioargs);
     public class NoleggioManager
     {
