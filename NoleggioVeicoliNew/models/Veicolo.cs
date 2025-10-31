@@ -33,24 +33,19 @@ namespace NoleggioVeicoliNew.models
 
         public bool Noleggia()
         {
-            bool successo = !Noleggiato;
-
-            if (!Noleggiato) { 
-                Noleggiato = true;
-            }
-
-            return successo;
-        }
-
-        public bool Restituisci()
-        {
-            bool successo = Noleggiato;
             if (Noleggiato)
             {
-                Noleggiato = false;
+                throw new VeicoloNonDisponibileException("veicolo "+ this.Targa + " già noleggiato");
             }
+            Noleggiato = true;
+            return true;
+        }
+        public bool Restituisci()
+        {
+            if (!Noleggiato) return false;
+            Noleggiato = false;
 
-            return successo;
+            return true;
         }
     }
 }

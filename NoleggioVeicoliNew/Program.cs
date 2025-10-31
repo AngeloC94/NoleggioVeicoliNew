@@ -40,6 +40,11 @@ namespace NoleggioVeicoliNew
             double dr4 = 7;
             _noleggioManager.CreaNoleggio(cli1, vl1, dr1, from1);
 
+            Noleggio nl = _db.GetAllNoleggi().FirstOrDefault();
+            bool terminaIsOk = _noleggioManager.TerminaNoleggio(nl);
+            if(!terminaIsOk)
+                Console.WriteLine("Termina noleggio non andato a buon fine");
+
             //Cliente cli5 = _db.GetAllClienti().ElementAt(10);
             //Veicolo vl5 = _db.GetAllVeicoli().ElementAt(11);
             //DateTime from5 = DateTime.Now;

@@ -45,17 +45,28 @@ namespace NoleggioVeicoliNew.services
         public void CreaNoleggio(Cliente cl , Veicolo veicolo, double durata,DateTime inizio)
         {
 
-            Noleggio nl = new Noleggio(veicolo, cl, durata, inizio, inizio.AddDays(durata));
-            _idb.AddNoleggio(nl);
-            veicolo.Noleggia();
-            OnVeicoloNoleggiato(nl);
+            Noleggio nl = new Noleggio(veicolo, cl, durata, inizio, inizio.AddDays(durata));          
+            try
+            {
+                var result = veicolo.Noleggia();
+                _idb.AddNoleggio(nl);
+                OnVeicoloNoleggiato(nl);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }          
         }
 
-        public void TerminaNoleggio(Noleggio nl)
+        public bool TerminaNoleggio(Noleggio nl)
         {
-            nl.Veicolo.Restituisci();
-            _idb.UpdateNoleggio(nl);
-            OnVeicoloNoleggiato(nl);
+            bool terminaNoleggioIsOK = nl.Veicolo.Restituisci();
+            if (terminaNoleggioIsOK)
+            {
+                _idb.UpdateNoleggio(nl);
+                OnVeicoloNoleggiato(nl);
+            }
+            return terminaNoleggioIsOK;          
         }
 
     }
