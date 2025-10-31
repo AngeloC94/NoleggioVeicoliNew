@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoleggioVeicoliNew.services
+namespace NoleggioVeicoliNew.models
 {
     public class Noleggio
     {
