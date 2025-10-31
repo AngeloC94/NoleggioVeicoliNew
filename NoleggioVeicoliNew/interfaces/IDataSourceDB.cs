@@ -8,10 +8,10 @@ using NoleggioVeicoliNew.services;
 
 namespace NoleggioVeicoliNew.interfaces
 {
-    internal interface IDataSourceDB
+    public interface IDataSourceDB
     {
         void AddVeiocolo(Veicolo veicolo);
-        void AddClente(Cliente cliente);
+        void AddCliente(Cliente cliente);
 
         List<Veicolo> GetAllVeicoli();
         List<Cliente> GetAllClienti();

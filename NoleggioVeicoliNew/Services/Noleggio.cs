@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NoleggioVeicoliNew.services
 {
-    internal class Noleggio
+    public class Noleggio
     {
     }
 }
