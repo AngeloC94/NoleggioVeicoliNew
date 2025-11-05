@@ -246,6 +246,4 @@ namespace NoleggioVeicoliNew.services
         }
         #endregion
     }
-
-
 }

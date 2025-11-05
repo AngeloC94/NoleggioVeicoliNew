@@ -1,0 +1,141 @@
+﻿
+
+USE [academy25-noleggio-veicoli]
+GO
+/****** Object:  Table [dbo].[Auto]    Script Date: 05/11/2025 17:48:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Auto](
+	[Id] [uniqueidentifier] NOT NULL,
+	[NumeroPorte] [int] NOT NULL,
+	[IsSportiva] [bit] NOT NULL,
+ CONSTRAINT [PK_Auto] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Clienti]    Script Date: 05/11/2025 17:48:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Clienti](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Nome] [nvarchar](50) NOT NULL,
+	[CodiceCliente] [nvarchar](50) NULL,
+	[TipoPatente] [int] NOT NULL,
+ CONSTRAINT [PK_Clienti] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Furgoni]    Script Date: 05/11/2025 17:48:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Furgoni](
+	[Id] [uniqueidentifier] NOT NULL,
+	[CapacitaCaricoKg] [float] NOT NULL,
+ CONSTRAINT [PK_Furgoni] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Moto]    Script Date: 05/11/2025 17:48:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Moto](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Cilindrata] [int] NOT NULL,
+ CONSTRAINT [PK_Moto] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Noleggi]    Script Date: 05/11/2025 17:48:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Noleggi](
+	[Id] [uniqueidentifier] NOT NULL,
+	[IdCliente] [uniqueidentifier] NOT NULL,
+	[IdVeicolo] [uniqueidentifier] NOT NULL,
+	[DataInizio] [datetime] NOT NULL,
+	[DurataGiorni] [int] NOT NULL,
+ CONSTRAINT [PK_Noleggi] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SYSPatenti]    Script Date: 05/11/2025 17:48:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SYSPatenti](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Tipo] [nchar](10) NOT NULL,
+ CONSTRAINT [PK_TipoPatente] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Veicoli]    Script Date: 05/11/2025 17:48:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Veicoli](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Targa] [nchar](10) NOT NULL,
+	[Modello] [nvarchar](50) NOT NULL,
+	[TariffaGiornaliera] [float] NOT NULL,
+	[Noleggiato] [bit] NOT NULL,
+ CONSTRAINT [PK_Veicoli] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Auto]  WITH CHECK ADD  CONSTRAINT [FK_Auto_Veicoli] FOREIGN KEY([Id])
+REFERENCES [dbo].[Veicoli] ([Id])
+GO
+ALTER TABLE [dbo].[Auto] CHECK CONSTRAINT [FK_Auto_Veicoli]
+GO
+ALTER TABLE [dbo].[Clienti]  WITH CHECK ADD  CONSTRAINT [FK_Clienti_TipoPatente] FOREIGN KEY([TipoPatente])
+REFERENCES [dbo].[SYSPatenti] ([Id])
+GO
+ALTER TABLE [dbo].[Clienti] CHECK CONSTRAINT [FK_Clienti_TipoPatente]
+GO
+ALTER TABLE [dbo].[Furgoni]  WITH CHECK ADD  CONSTRAINT [FK_Furgoni_Veicoli] FOREIGN KEY([Id])
+REFERENCES [dbo].[Veicoli] ([Id])
+GO
+ALTER TABLE [dbo].[Furgoni] CHECK CONSTRAINT [FK_Furgoni_Veicoli]
+GO
+ALTER TABLE [dbo].[Moto]  WITH CHECK ADD  CONSTRAINT [FK_Moto_Veicoli] FOREIGN KEY([Id])
+REFERENCES [dbo].[Veicoli] ([Id])
+GO
+ALTER TABLE [dbo].[Moto] CHECK CONSTRAINT [FK_Moto_Veicoli]
+GO
+ALTER TABLE [dbo].[Noleggi]  WITH CHECK ADD  CONSTRAINT [FK_Noleggi_Clienti] FOREIGN KEY([IdCliente])
+REFERENCES [dbo].[Clienti] ([Id])
+GO
+ALTER TABLE [dbo].[Noleggi] CHECK CONSTRAINT [FK_Noleggi_Clienti]
+GO
+ALTER TABLE [dbo].[Noleggi]  WITH CHECK ADD  CONSTRAINT [FK_Noleggi_Veicoli] FOREIGN KEY([IdVeicolo])
+REFERENCES [dbo].[Veicoli] ([Id])
+GO
+ALTER TABLE [dbo].[Noleggi] CHECK CONSTRAINT [FK_Noleggi_Veicoli]
+GO
