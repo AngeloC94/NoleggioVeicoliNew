@@ -11,8 +11,14 @@ namespace NoleggioVeicoliNew.models
         public int NumeroPorte { get; }
         public bool IsSportiva { get; }
 
-        public Auto(string targa, string modello, double tariffa, int numeroPorte, bool IsSportiva) : base (targa,modello,tariffa)
-        { 
+        public Auto(string targa, string modello, double tariffa, int numeroPorte, bool IsSportiva) : base(targa, modello, tariffa)
+        {
+            this.NumeroPorte = numeroPorte;
+            this.IsSportiva = IsSportiva;
+        }
+
+        public Auto(Guid id, string targa, string modello, double tariffa, int numeroPorte, bool IsSportiva, bool noleggiato) : base(id, targa, modello, tariffa, noleggiato)
+        {
             this.NumeroPorte = numeroPorte;
             this.IsSportiva = IsSportiva;
         }
@@ -23,7 +29,7 @@ namespace NoleggioVeicoliNew.models
 
             if (IsSportiva)
             {
-                costo = costo + (TariffaGiornaliera*0.1*giorni); 
+                costo = costo + (TariffaGiornaliera * 0.1 * giorni);
             }
 
             return costo;

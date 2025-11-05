@@ -15,15 +15,20 @@ namespace NoleggioVeicoliNew.models
             this.CapacitaCaricoKg = capacitaCaricoKg;
         }
 
+        public Furgone(Guid id, string targa, string modello, double tariffa, double capacitaCaricoKg, bool noleggiato) : base(id, targa, modello, tariffa, noleggiato)
+        {
+            this.CapacitaCaricoKg = capacitaCaricoKg;
+        }
+
         public override double CalcolaCosto(int giorni)
         {
             double costo = giorni * TariffaGiornaliera;
 
-            if(CapacitaCaricoKg >= 3000)
+            if (CapacitaCaricoKg >= 3000)
             {
                 costo = costo + (TariffaGiornaliera * 0.1 * giorni);
             }
-            else if(CapacitaCaricoKg > 2000)
+            else if (CapacitaCaricoKg > 2000)
             {
                 costo = costo + (TariffaGiornaliera * 0.05 * giorni);
             }

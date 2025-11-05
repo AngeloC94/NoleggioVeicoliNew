@@ -45,8 +45,8 @@ namespace NoleggioVeicoliNew
             if(!terminaIsOk)
                 Console.WriteLine("Termina noleggio non andato a buon fine");
 
-            //Cliente cli5 = _db.GetAllClienti().ElementAt(10);
-            //Veicolo vl5 = _db.GetAllVeicoli().ElementAt(11);
+            //Cliente cli5 = _dbContext.GetAllClienti().ElementAt(10);
+            //Veicolo vl5 = _dbContext.GetAllVeicoli().ElementAt(11);
             //DateTime from5 = DateTime.Now;
             //double dr5 = 7;
             //_noleggioManager.CreaNoleggio(cli1, vl1, dr1, from1);
@@ -66,7 +66,9 @@ namespace NoleggioVeicoliNew
 
         private static void Init()
         {
-            _db = new DataManager();
+            //_db = new DataManager();
+
+            _db = new DBDataManager(new domain.NoleggioDbContext());
             _noleggioManager = new NoleggioManager( _db );
             _reportManager   = new ReportManager(_db);
 

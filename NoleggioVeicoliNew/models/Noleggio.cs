@@ -25,6 +25,15 @@ namespace NoleggioVeicoliNew.models
             this.DataFine = DataFine;
             this.Id = Guid.NewGuid();
         }
+
+        public Noleggio(Guid id, Veicolo veicolo, Cliente cliente, double durataGiorni, DateTime dataInizio)
+        {
+            this.Veicolo = veicolo;
+            this.Cliente = cliente;
+            this.DurataGiorni = durataGiorni;
+            this.DataInizio = dataInizio;
+            this.Id = id;
+        }
         public double CalcolaTotale() //FINITO
         {
             int temp = (int)DurataGiorni;

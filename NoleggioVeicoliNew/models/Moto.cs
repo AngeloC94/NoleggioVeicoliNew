@@ -14,6 +14,10 @@ namespace NoleggioVeicoliNew.models
         {
             this.Cilindrata = cilindrata;
         }
+        public Moto(Guid id, string targa, string modello, double tariffa, int cilindrata, bool noleggiato) : base(id, targa, modello, tariffa, noleggiato)
+        {
+            this.Cilindrata = cilindrata;
+        }
 
         public override double CalcolaCosto(int giorni)
         {

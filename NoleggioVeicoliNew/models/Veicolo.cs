@@ -24,6 +24,16 @@ namespace NoleggioVeicoliNew.models
             this.Id = Guid.NewGuid();
         }
 
+        public Veicolo(Guid id, string targa, string modello, double tariffa, bool noleggiato)
+        {
+            this.Targa = targa;
+            this.Modello = modello;
+            this.TariffaGiornaliera = tariffa;
+            this.Noleggiato = false;
+            this.Id = id;
+            this.Noleggiato = noleggiato;
+        }
+
         public abstract double CalcolaCosto(int giorni);
 
         public string MostraDettagli()
